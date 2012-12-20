@@ -21,18 +21,21 @@ def student_create(request):
         context_instance=RequestContext(request))
 
 
-def student_save(request, pk):
+def student_save(request):
     if request.method == 'POST':
-        student = Student.objects.get(pk=pk)
-        form = StudentForm(request.POST, instance=student)
+#        import pdb; pdb.set_trace()
+        if 'id' in request.POST:
+            student = Student.objects.get(pk=request.POST['id'])
+            form = StudentForm(request.POST, instance=student)
+        else:
+            form = StudentForm(request.POST)
+
         if form.is_valid():
-            form.save()  # vuln here, auth + check needed
-            return HttpResponseRedirect('/student/' + pk + '/edit')
-    else:
-        form = StudentForm()
+            student = form.save()  # vuln here, auth + check needed
+            return HttpResponseRedirect('/student/' + str(student.id))
 
-    return HttpResponseRedirect('/student/' + pk + '/edit')
 
+        return HttpResponseRedirect('/student/create')
 
 # Create a new company
 #def company_create(request):

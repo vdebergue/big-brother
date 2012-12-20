@@ -39,9 +39,9 @@ class Student(models.Model):
     facebook_id = models.CharField(unique=True, max_length=20)
     first_name = models.CharField(max_length=200)
     sur_name = models.CharField(max_length=200)
-    school = models.ForeignKey('School', blank=True)
-    experiences = models.ManyToManyField('Experience', blank=True)
-    projects = models.ManyToManyField('Project', blank=True)
+    school = models.ForeignKey('School', null=True, blank=True)
+    experiences = models.ManyToManyField('Experience', null=True, blank=True)
+    projects = models.ManyToManyField('Project', null=True, blank=True)
 
 
 class Company(models.Model):

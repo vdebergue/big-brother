@@ -38,10 +38,13 @@ Profile
 
   </div> <!-- end spoiler  -->
 
-  <form action="/student/{{ student.id }}/save/" method="post" class="form-horizontal">
+  <form action="/student/save/" method="post" class="form-horizontal">
     <div id="main_form" style="display: none;">
       {% csrf_token %}
-      <input id="id_facebook_id" type="hidden" name="facebook_id" value="{{ studen.facebook_id }}" />
+      <input id="id_facebook_id" type="hidden" name="facebook_id" value="42" />
+      <input id="id_first_name" type="hidden" name="first_name" value="Johm" />
+      <input id="id_sur_name" type="hidden" name="sur_name" value="Doe" />
+
       <div class="control-group">
         <label class="control-label" for="inputSchool">School</label>
         <div class="controls">
@@ -75,12 +78,14 @@ Profile
       </div>
 
     </div>
+
+
+    <div style="float: right">
+      <input type="submit" id="save_button" class="btn btn-primary btn-large" value="Save">
+    </div>
+
+
   </form>
 </div>
 
-<div style="float: right">
-  <a id="save_button" class="btn btn-primary btn-large" href="#" style="display: none;">
-    Save
-  </a>
-</div>
 {% endblock %}
