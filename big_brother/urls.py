@@ -1,18 +1,10 @@
+from django.views.generic import DetailView, ListView
 from django.conf.urls import patterns, include, url
 
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+from django.contrib import admin
+admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'big_brother.views.home', name='home'),
-    # url(r'^big_brother/', include('big_brother.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
-    url(r'^student/$', 'student.views.index'),
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^student/', include('student.urls')),
 )
