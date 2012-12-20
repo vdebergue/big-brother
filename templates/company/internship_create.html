@@ -1,0 +1,6 @@
+<h1>{{ company.name - internship.title }}</h1>
+
+<form action="/company/{{ company.id }}/internship/{{internship.id}}/save/" method="post">{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Submit" />
+</form>
