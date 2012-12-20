@@ -1,0 +1,6 @@
+<h1>{{ student.first_name }}</h1>
+
+<form action="/student/{{ student.id }}/save/" method="post">{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Submit" />
+</form>
