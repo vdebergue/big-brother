@@ -1,1 +1,22 @@
-Hi {{ student.first_name }}
+{% extends "main.html" %}
+
+{% load partial_template %}
+
+{% block title %}{{ student.first_name }}{% endblock %}
+
+{% block content %}
+Student Resume of {{student.first_name}} {{student.sur_name}}
+
+{% partial_template school/student_detail.html student.school %}
+
+{% partial_template student/more_info.html %}
+
+{%for project in student.projects %}
+    {% partial_template student/project.html project %}
+{% endfor %}
+
+{%for experience in student.experiences %}
+    {% partial_template student/experience.html experience %}
+{% endfor %}
+
+{% endblock %}
