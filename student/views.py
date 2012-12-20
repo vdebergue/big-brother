@@ -1,10 +1,43 @@
-from django.http import HttpResponse
-from django.template import Template
+from django.http import HttpResponse, HttpResponseRedirect
+from django.template import Template, RequestContext
 from django.shortcuts import render
+from django.shortcuts import render_to_response, get_object_or_404
+
+
+from forms import *
+from models import *
+
 
 def index(request):
     data = {"title": "Main"}
     return render(request, "main.html", data)
+
+def student_edit(request, pk):
+    """
+    """
+    student = get_object_or_404(Student, pk=pk)
+#    import pdb; pdb.set_trace()
+    return render_to_response(
+        'student/student_edit.html',
+        {
+            'form': StudentForm(instance=student),
+            'student': student,
+            },
+        context_instance=RequestContext(request))
+
+
+def student_save(request, pk):
+    if request.method == 'POST':
+        student = Student.objects.get(pk=pk)
+        form = StudentForm(request.POST, instance=student)
+        if form.is_valid():
+            form.save()  # vuln here, auth + check needed
+            return HttpResponseRedirect('/student/' + pk + '/edit')
+    else:
+        form = StudentForm()
+
+    return HttpResponseRedirect('/student/' + pk + '/edit')
+
 
 # Create a new company
 def add_company(request):
@@ -18,7 +51,7 @@ def use_company(request):
 # Create a new internship
 def create_internship(request):
   internship = Internship.objects.create(title = request['title'], company = Company.objects.filter('id' = request['company']))
-  return edit_internship('id'=internship.id)  
+  return edit_internship('id'=internship.id)
 
 # View internship data
 def view_internship(request):
@@ -52,7 +85,6 @@ def ping_students(request):
 
 # Close an internship having found an intern
 def toggle_active(request):
-  internship = Internship.objects.filter('id' = request['internship']) 
+  internship = Internship.objects.filter('id' = request['internship'])
   internship.active = not internship.active
   internship.save()
-
