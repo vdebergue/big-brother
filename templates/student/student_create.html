@@ -38,8 +38,8 @@ Profile
 
   </div> <!-- end spoiler  -->
 
-  <div id="main_form" style="display: none;">
-    <form action="/student/{{ student.id }}/save/" method="post" class="form-horizontal">
+  <form action="/student/{{ student.id }}/save/" method="post" class="form-horizontal">
+    <div id="main_form" style="display: none;">
       {% csrf_token %}
       <input id="id_facebook_id" type="hidden" name="facebook_id" value="{{ studen.facebook_id }}" />
       <div class="control-group">
@@ -74,8 +74,8 @@ Profile
         </div>
       </div>
 
-    </form>
-  </div>
+    </div>
+  </form>
 </div>
 
 <div style="float: right">

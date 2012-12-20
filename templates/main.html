@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
 
     <link href="/static/css/main.css" rel="stylesheet" media="screen">
+    <script src="/static/js/main.js"></script>
 
   </head>
   <body>
@@ -20,7 +21,10 @@
       </div>
     </h1>
 
-    <h1>Hello, Big B!</h1>
-    {% block content %}{% endblock %}
+    <div id="main_container" class="container">
+
+      <h1>Hello, Big B!</h1>
+      {% block content %}{% endblock %}
+    </div>
   </body>
 </html>
