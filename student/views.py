@@ -1,7 +1,10 @@
 from django.http import HttpResponse
+from django.template import Template
+from django.shortcuts import render
 
 def index(request):
-    return HttpResponse("Hi world")
+    data = {"title": "Main"}
+    return render(request, "main.html", data)
 
 # Create a new company
 def add_company(request):
@@ -52,3 +55,4 @@ def toggle_active(request):
   internship = Internship.objects.filter('id' = request['internship']) 
   internship.active = not internship.active
   internship.save
+
