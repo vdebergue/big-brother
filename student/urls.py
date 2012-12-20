@@ -16,7 +16,5 @@ urlpatterns = patterns('',
         DetailView.as_view(
             model=Student,
             template_name='student/detail.html')),
-    url(r'^(?P<pk>\d+)/edit/$', 'student.views.student_edit'),
-    url(r'^(?P<pk>\d+)/save/$', 'student.views.student_save'),
     url(r'^create/$', 'student.views.student_create'),
 )

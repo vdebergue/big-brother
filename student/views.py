@@ -21,20 +21,6 @@ def student_create(request):
         context_instance=RequestContext(request))
 
 
-def student_edit(request, pk):
-    """
-    """
-    student = get_object_or_404(Student, pk=pk)
-#    import pdb; pdb.set_trace()
-    return render_to_response(
-        'student/student_edit.html',
-        {
-            'form': StudentForm(instance=student),
-            'student': student,
-            },
-        context_instance=RequestContext(request))
-
-
 def student_save(request, pk):
     if request.method == 'POST':
         student = Student.objects.get(pk=pk)
