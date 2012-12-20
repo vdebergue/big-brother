@@ -26,14 +26,14 @@ class Student(models.Model):
     projects = models.ManyToManyField(Project)
 
 
-class Project(nodels.Model):
+class Project(models.Model):
     """
     Students' school project.
     """
     name = models.CharField(max_length=200)
 
 
-class Experience(nodels.Model):
+class Experience(models.Model):
     """
     Student's previous experiences (internship, summer jobs ...)
     """
