@@ -1,0 +1,21 @@
+{% extends "main.html" %}
+
+{% block title %} {{ create an internship}} {% endblock %}
+
+{% block content %}
+
+<FORM METHOD='POST' ACTION='/company/internship/create'
+ 
+<INPUT type=text name='Title'>
+
+<TEXTAREA rows='1000', name = 'Description'>
+</TEXTAREA>
+
+<INPUT type=text name='Tags'>
+
+<INPUT type='submit' value='Create'
+
+</FORM>
+
+{% endblock %}
+

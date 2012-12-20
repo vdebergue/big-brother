@@ -1,0 +1,6 @@
+<h1>{{ company.name }}</h1>
+
+<form action="/company/{{ company.id }}/save/" method="post">{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Submit" />
+</form>
