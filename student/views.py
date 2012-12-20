@@ -54,5 +54,5 @@ def ping_students(request):
 def toggle_active(request):
   internship = Internship.objects.filter('id' = request['internship']) 
   internship.active = not internship.active
-  internship.save
+  internship.save()
 
