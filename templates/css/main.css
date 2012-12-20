@@ -1,0 +1,50 @@
+h1.main_header {
+    margin-top: 0;
+    background-color: #006DCC; 
+    color: white; 
+    height: 70px;
+    line-height: 70px;
+}
+
+#spoiler_container {
+    margin: 0 auto; 
+    text-align: center;
+}
+
+#spoiler_bottom {
+    margin-top: 10px;
+    width:241px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#enter_manually_div {
+    text-align: center;
+    font-size: 18px;
+}
+
+#main_container {
+    background-color: #EEEEEE;
+    padding: 10px;
+    width: auto;
+    max-width: 800px;
+}
+
+#main_form {
+    padding-top: 20px;
+}
+
+.form-horizontal .control-label {
+    padding-right: 5px;
+    width: 100px;
+}
+
+.form-horizontal .to_label{
+    width: 20px;
+}
+
+.form-horizontal .controls {
+    margin-left: 0;
+    float: left;
+}

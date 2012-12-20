@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Big Brother for Students</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+    <link href="css/main.css" rel="stylesheet" media="screen">
+
+    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+
+    <script src="js/bootstrap.min.js"></script>
+
+  </head>
+  <body>
+
+    <h1 class="main_header">
+      <div style="text-align: center;">
+        Big Brother for Students
+      </div>
+    </h1>
+
+    <div id="main_container" class="container" style="display: none;">
+      <div align="center">
+      <h3>
+        <span style="font-weight: normal;">
+          Welcome {{student_name}}!
+        </span>
+      </h3>
+
+      <div id="spoiler_container">
+        <a id="landing_fb_connect" class="btn btn-primary btn-large" href="#">
+          Use My Facebook Profile
+        </a>
+
+        <div id="spoiler_bottom">
+          or
+          <div id="enter_manually_div">
+            <a href="#" id="enter_info_manually">
+              enter your info manually
+            </a>
+          </div>
+
+          <div style="text-align: center;">
+            <i class="icon-chevron-down"></i>
+          </div>
+
+        </div>
+
+      </div> <!-- end spoiler  -->
+
+      <div id="main_form" style="display: none;">
+        <form class="form-horizontal">
+
+          <div class="control-group">
+            <label class="control-label" for="inputSchool">School</label>
+            <div class="controls">
+              <input type="text" id="inputSchool" placeholder="Enter your school">
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="inputMajor">Major</label>
+            <div class="controls">
+              <input type="text" id="inputMajor" placeholder="Enter your majors">
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="inputPeriod">From</label>
+            <div class="controls">
+              <input type="text" id="datepicker_from" placeholder="Enter a starting date"/>
+            </div>
+            <label class="control-label to_label" for="inputPeriod">to</label>
+            <div class="controls">
+              <input type="text" id="datepicker_to" placeholder="Enter an ending date"/>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="inputKeywords">Keywords</label>
+            <div class="controls">
+              <input type="text" id="inputKeywords" placeholder="Enter your keywords">
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+    <div style="float: right">
+    <a id="save_button" class="btn btn-primary btn-large" href="#" style="display: none;">
+          Save
+    </a>
+    </div>
+
+    </div> <!-- end container -->
+
+  </body>
+
+    <script src="js/main.js"></script>
+
+</html>
