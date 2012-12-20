@@ -2,7 +2,8 @@ from django.views.generic import DetailView, ListView
 from django.conf.urls import patterns, include, url
 
 from student.models import Student
-
+from student.models import Company
+from student.models import Internship
 
 urlpatterns = patterns('',
     url(r'^$',
@@ -14,13 +15,13 @@ urlpatterns = patterns('',
         DetailView.as_view(
             model=Student,
             template_name='student/detail.html')),
-    url(r'^company/(?P<pk>\d+)\$',
-    model=Company.as_view(
-    model=Company,
-    template_name='company/company.html')),
+    url(r'^company/(?P<pk>\d+)/$',
+        DetailView.as_view(
+            model=Company,
+            template_name='company/company.html')),
 
-    url(r'^company/stage(?P<pk>\d+)\$',
-    model=Internship.as_view(
-    model=Internship,
-    template_name='company/internship.html')),
+    url(r'^company/internship/(?P<pk>\d+)/$',
+        DetailView.as_view(
+            model=Internship,
+            template_name='company/internship.html')),
 )

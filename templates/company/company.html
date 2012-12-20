@@ -1,10 +1,13 @@
-{% extends "main.html" %}
-
 {% block title %}{{ company.name }}{% endblock %}
 
 {% block list_content %}
+{% block sub_title %} { Here are your current internship propositions } {% endblock %}
 
-company.internships
+{% block list %}
+{{company.internships}}
+{% endblock %}
+
+{% block command %} <button onClick='localhost:8000/student/internship/1'> Post an internship </button> {% endblock %}
 
 {% endblock %}
 

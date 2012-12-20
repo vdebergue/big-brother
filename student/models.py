@@ -55,7 +55,7 @@ class Internship(models.Model):
     """
     Internship posted by companies.
     """
-    name = models.CharField(max_length=200)
+    title = models.CharField(max_length=200)
     company = models.ForeignKey('Company')
     applicants = models.ManyToManyField('Student')
     active     = models.BooleanField(True)
