@@ -50,28 +50,12 @@ class Company(models.Model):
     """
     facebook_id = models.CharField(primary_key=True, max_length=20)
     name        = models.CharField(max_length=200)
-    internships = models.OneToMany('Internship')
   
-  '''  
-    def add_internship(internship_id):
-      self.internships.append(internship_id)
-      return 0
-  '''
-  '''
-    def get_internships(ids):
-      if not ids:
-        ids = self.internships
-      internships = []
-      for id in ids:
-        internships.objects.filter(id__in=ids)
-
-      return internships
-  '''
-
 class Internship(models.Model):
     """
     Internship posted by companies.
     """
     name = models.CharField(max_length=200)
+    company = models.ForeignKey('Company')
     applicants = models.ManyToManyField('Student')
     active     = models.BooleanField(True)
