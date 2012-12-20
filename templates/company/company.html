@@ -6,8 +6,8 @@
 {% block list %}
 {{company.internships}}
 {% endblock %}
-
-{% block command %} <button onClick='localhost:8000/student/internship/1'> Post an internship </button> {% endblock %}
+{% block internship %} <a href='http://localhost:8000/company/{{company.facebook_id}}/internship/1/edit'> view this internship </a> {% endblock %}
+{% block post_internship %} <a href='http://localhost:8000/company/{{company.facebook_id}}/internship/create'> Post an internship </a> {% endblock %}
 
 {% endblock %}
 
