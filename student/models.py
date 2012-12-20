@@ -2,6 +2,13 @@ from django.db import models
 
 # Create your models here.
 
+class App(models.Model):
+    """
+    """
+    secret = models.CharField(max_length=32)
+    app_id = models.IntField()
+
+
 class School(models.Model):
     """
     """
