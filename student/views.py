@@ -12,6 +12,15 @@ def index(request):
     data = {"title": "Main"}
     return render(request, "main.html", data)
 
+
+def student_create(request):
+    """
+    """
+    return render_to_response(
+        'student/student_create.html',
+        context_instance=RequestContext(request))
+
+
 def student_edit(request, pk):
     """
     """
