@@ -77,6 +77,6 @@ class Internship(models.Model):
     company    = models.ForeignKey(Company)
     applicants = models.ManyToManyField(Student)
     majors     = []
-    
+    active     = models.BooleanField(True)
       
 
