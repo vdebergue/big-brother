@@ -40,36 +40,69 @@ def student_save(request, pk):
 
 
 # Create a new company
-def add_company(request):
-  company = Company.objects.create(name = request['name'])
-  return Company.objects.filter('id'=company.id)
+#def company_create(request):
+#  company = Company.objects.create(name = request['name'])
+#  return Company.objects.filter('id'=company.id)
 
-# Use Company
-def use_company(request):
-  return Company.objects.filter('id'=request['company_id'])
+def company_edit(request, pk):
+    """
+    """
+    student = get_object_or_404(Company, facebook_id=pk)
+#    import pdb; pdb.set_trace()
+    return render_to_response(
+        'company/company_edit.html',
+        {
+            'form': CompanyForm(instance=company),
+            'company': company,
+            },
+        context_instance=RequestContext(request))
+        
+def company_save(request, pk):
+    if request.method == 'POST':
+        company = Company.objects.get(facebook_id=pk)
+        form = CompanyForm(request.POST, instance=company)
+        if form.is_valid():
+            form.save()  # vuln here, auth + check needed
+            return HttpResponseRedirect('/company/' + pk + '/edit')
+    else:
+        form = CompanyForm()
+
+    return HttpResponseRedirect('/company/' + pk + '/edit')
 
 # Create a new internship
-def create_internship(request):
-  internship = Internship.objects.create(title = request['title'], company = Company.objects.filter('id' = request['company']))
-  return edit_internship('id'=internship.id)
+def internship_create(request, pk):
+  return HttpResponseRedirect('/company/' + pk + '/internship/1/edit')
+#  internship = Internship.objects.create(title = request['title'], company = Company.objects.filter('id' = request['company']))
+#  return edit_internship('id'=internship.id)
 
-# View internship data
-def view_internship(request):
-  return Internship.objects.filter('id' = request['internship'])
+#  return HttpResponseRedirect('/company/' + internship.company.facebook_id + '/internship/' + internship.id + '/edit')
 
-# Change fields of the internship
-def edit_internship(request):
-  internship = Intership.objects.filter('id' = request['internship'])
-  if request['title']:
-    internship.title = request['title']
+# View / Edit internship data
 
-  if request['applicants']:
-    internship.applicants = request['applicants']
+def internship_edit(request, pk,  internship_id=None):
+    """
+    """
+    internship = get_object_or_404(Internship, id=internship_id)
+#    import pdb; pdb.set_trace()
+    return render_to_response(
+        'company/internship_edit.html',
+        {
+            'form': InternshipForm(instance=internship),
+            'internship': internship,
+            },
+        context_instance=RequestContext(request))
+        
+def internship_save(request, internship_id):
+    if request.method == 'POST':
+        internship = Internship.objects.get(id=internship_id)
+        form = InternshipForm(request.POST, instance=internship)
+        if form.is_valid():
+            form.save()  # vuln here, auth + check needed
+            return HttpResponseRedirect('/company/' + internship.company.facebook_id + '/internship/' + internship_id + '/edit')
+    else:
+        form = CompanyForm()
 
-  if request['major']:
-    internship.major = request['major']
-
-  internship.save()
+    return HttpResponseRedirect('/company/' + internship.company.facebook_id + '/internship/' + internship_id + '/edit')
 
 # Get students according to search preferences
 def get_students(request):
@@ -83,8 +116,4 @@ def view_student(request):
 def ping_students(request):
   pass
 
-# Close an internship having found an intern
-def toggle_active(request):
-  internship = Internship.objects.filter('id' = request['internship'])
-  internship.active = not internship.active
-  internship.save()
+
