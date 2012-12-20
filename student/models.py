@@ -6,7 +6,7 @@ class App(models.Model):
     """
     """
     secret = models.CharField(max_length=32)
-    app_id = models.IntField()
+    app_id = models.IntegerField()
 
 
 class School(models.Model):
@@ -28,9 +28,9 @@ class Student(models.Model):
     facebook_id = models.CharField(primary_key=True, max_length=20)
     first_name = models.CharField(max_length=200)
     sur_name = models.CharField(max_length=200)
-    school = models.ForeignKey(School)
-    experiences = models.ForeignKey(Experience)
-    projects = models.ManyToManyField(Project)
+    school = models.ForeignKey('School')
+    experiences = models.ForeignKey('Experience')
+    projects = models.ManyToManyField('Project')
 
 
 class Project(models.Model):
@@ -62,5 +62,5 @@ class Internship(models.Model):
     Internship posted by companies.
     """
     name = models.CharField(max_length=200)
-    company = models.ForeignKey(Company)
-    applicants = models.ManyToManyField(Student)
+    company = models.ForeignKey('Company')
+    applicants = models.ManyToManyField('Student')
