@@ -9,13 +9,13 @@ Student Resume of {{student.first_name}} {{student.sur_name}}
 
 {% partial_template school/student_detail.html student.school %}
 
-{% partial_template student/more_info.html %}
+{% include 'partials/student/more_info.html' %}
 
-{%for project in student.projects %}
+{%for project in student.projects.all %}
     {% partial_template student/project.html project %}
 {% endfor %}
 
-{%for experience in student.experiences %}
+{%for experience in student.experiences.all %}
     {% partial_template student/experience.html experience %}
 {% endfor %}
 
