@@ -10,7 +10,7 @@ class PartialTemplateNode(Node):
         self.context_item = Variable(context_item)
 
     def render(self, context):
-        template = loader.get_template('partials/%s.html' % (self.template_name,))
+        template = loader.get_template('partials/%s' % (self.template_name,))
         item = self.context_item.resolve(context)
         template_context = Context({
             'item': item

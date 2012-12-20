@@ -218,7 +218,7 @@
         "fields": {
             "active": false,
             "company": "104024606296679",
-            "name": "Ads developer",
+            "title": "Ads developer",
             "applicants": []
         }
     },
@@ -228,7 +228,7 @@
         "fields": {
             "active": false,
             "company": "104024606296679",
-            "name": "HR needed",
+            "title": "HR needed",
             "applicants": []
         }
     },
@@ -238,7 +238,7 @@
         "fields": {
             "active": false,
             "company": "104024606296679",
-            "name": "Product Manager",
+            "title": "Product Manager",
             "applicants": []
         }
     },
