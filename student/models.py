@@ -36,11 +36,6 @@ class Experience(models.Model):
     date_start = models.DateField()
     date_end = models.DateField()
 
-class StudentInternship(models.Model):
-    """
-    """
-    name = models.CharField(max_length=200)
-    description = models.CharField(max_length=2000)
 
 class Student(models.Model):
     """
