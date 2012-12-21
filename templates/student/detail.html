@@ -1,0 +1,62 @@
+{% extends "main.html" %}
+
+{% load partial_template %}
+
+{% block title %}{{ student.first_name }}{% endblock %}
+
+{% block js %}
+<script src="/static/js/detail_student.js"></script>
+{% endblock %}
+
+{% block content %}
+<div id="student_infos">
+  <!-- Student name -->
+  <div>
+    <img src="http://graph.facebook.com/{{student.facebook_id}}/picture?type=normal">
+    <!-- <h2 id="second_page_student_name" style="float:right">{{student.first_name}} {{student.sur_name}}</h2> -->
+    <h2 id="second_page_student_name">{{student.first_name}} {{student.sur_name}}</h2>
+  </div>
+  <div class="row">
+    <div class="span12" style="padding: 40px;"></div>
+  </div>
+  <!-- School name  -->
+  <div>
+    {% partial_template school/student_detail.html student.school %}
+  </div>
+  <!-- Majors -->
+  <div>
+    <h3 id="second_page_majors">{{Majors}}</h3>
+  </div>
+
+  <div>
+    <strong style="color: #AAA; size: 3em;">
+      Contact {{ student.first_name }}
+    </strong>
+  </div>
+
+  <div style="float: right;">
+    <img src="/static/img/map.png" />
+  </div>
+</div>
+
+<div class="span5" id="right_column">
+<div id="student_internship_infos">
+  <p class="looking_for">I'm looking for an internship from</p>
+
+  <span id="intern_from" style="font-weight: bold;">{{internship_date_from}}</span> to <span id="intern_to" style="font-weight: bold;">{{internship_date_to}}</span>
+</div>
+
+</div>
+
+<div id="add_section">
+{% include 'partials/student/more_info.html' %}
+
+{%for project in student.projects.all %}
+    {% partial_template student/project.html project %}
+{% endfor %}
+
+{%for experience in student.experiences.all %}
+    {% partial_template student/experience.html experience %}
+{% endfor %}
+
+{% endblock %}
