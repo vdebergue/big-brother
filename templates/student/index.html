@@ -42,13 +42,23 @@ Students list
 
       <tbody>
         {% for student in student_list %}
-        <tr>
-          <a href="/student/{{student.id}}">
-            <td>{{ student.sur_name }}</td>
-            <td>{{ student.first_name }}</td>
-            <td>{{ student.school }}</td>
-          </a>
-        </tr>
+          <tr>
+            <td>
+              <a href="/student/{{student.id}}">
+                {{ student.sur_name }}
+              </a>
+            </td>
+            <td>
+              <a href="/student/{{student.id}}">
+                {{ student.first_name }}
+              </a>
+            </td>
+            <td>
+              <a href="/student/{{student.id}}">
+                {{ student.school }}
+              </a>
+            </td>
+          </tr>
         {% endfor %}
       </tbody>
     </table>
