@@ -25,7 +25,6 @@ $(document).ready( function() {
         $container.delay('300').fadeIn('slow');
 
         //Use my FB profile button
-        landing_fb_connect
         var $fbConnect = $('#landing_fb_connect');
         $fbConnect.on('click', function() {
 

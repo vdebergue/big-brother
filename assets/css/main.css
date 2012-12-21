@@ -1,13 +1,13 @@
 h1.main_header {
-    margin-top: 0;
-    background-color: #006DCC;
-    color: white;
+    margin: 0;
+    background-color: #006DCC; 
+    color: white; 
     height: 70px;
     line-height: 70px;
 }
 
 #spoiler_container {
-    margin: 0 auto;
+    margin: 0 auto; 
     text-align: center;
 }
 
@@ -24,11 +24,11 @@ h1.main_header {
     font-size: 18px;
 }
 
-#main_container {
+#first_page, #second_page {
     background-color: #EEEEEE;
     padding: 10px;
-    width: auto;
-    max-width: 800px;
+
+    text-align: center;
 }
 
 #main_form {
@@ -49,34 +49,77 @@ h1.main_header {
     float: left;
 }
 
-
-/* data table */
-
-div.dataTables_length label {
-    width: 460px;
+#student_infos {
     float: left;
+    width: 50%
+}
+
+#right_column {
+    float: right;
     text-align: left;
 }
 
-div.dataTables_length select {
-    width: 75px;
+#student_internship_infos {
+    text-align: center;
+    background-color: #006DE9;
+    color: white;
+    padding: 5px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px;
 }
 
-div.dataTables_filter label {
-    float: right;
-    width: 460px;
+.btn.all_space {
+    width: 95%;
 }
 
-div.dataTables_info {
-    padding-top: 8px;
-}
-
-div.dataTables_paginate {
-    float: right;
+.looking_for {
     margin: 0;
 }
 
-table {
-    margin: 1em 0;
-    clear: both;
+.edit_section {
+    padding-top: 10px;
+}
+
+span.with {
+    margin: 0 5px;
+}
+
+.save_button {
+    margin-left: 10px;
+}
+
+#news_feed {
+    margin-top: 10px;
+    background-color: #FFFFFF;
+}
+
+#news_feed h4 {
+    text-align: center;
+    background-color: #006DE9;
+    color: #FFFFFF;
+    padding: 5px 0;
+}
+
+.icon-user {
+    cursor: pointer;
+}
+
+#friends_list {
+    text-align: left;
+}
+
+#add_section {
+    margin-top: 45px;
+}
+#news_feed ul.bluesquare {
+    list-style-type: square;
+    color: #006DE9;
+    padding: 0 10px 10px;
+}
+
+#news_feed ul span {
+    color: #000000;
 }

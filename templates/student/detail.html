@@ -4,10 +4,119 @@
 
 {% block title %}{{ student.first_name }}{% endblock %}
 
-{% block content %}
-Student Resume of {{student.first_name}} {{student.sur_name}}
+{% block js %}
+<script src="/static/js/detail_student.js"></script>
+{% endblock %}
 
-{% partial_template school/student_detail.html student.school %}
+{% block content %}
+<div id="student_infos">
+<!-- Student name -->
+<div>
+  <h2 id="second_page_student_name">{{student.first_name}} {{student.sur_name}}</h2>
+</div>
+<!-- School name  -->
+ <div>
+    {% partial_template school/student_detail.html student.school %}
+</div>
+<!-- Majors -->
+ <div>
+  <h3 id="second_page_majors">{{Majors}}</h3>
+</div>
+</div>
+
+<div id="right_column">
+<div id="student_internship_infos">
+  <p class="looking_for">I'm looking for an internship from</p>
+
+  <span id="intern_from" style="font-weight: bold;">{{internship_date_from}}</span> to <span id="intern_to" style="font-weight: bold;">{{internship_date_to}}</span>
+</div>
+
+<div id="news_feed">
+  <h4>News Feed</h4>
+  <ul class="bluesquare">
+    <li>
+      <span><a href="#">Ronald</a> added you to the project <a href="#">Bario Mros</a></span>
+    </li>
+    <li>
+      <span><a href="#">Ronald</a> added you to the school <a href="#">Telecoms</a></span>
+    </li>
+    <li>
+      <span>You are now  associated you to the school <a href="#">Telecoms</a></span>
+    </li>
+  </ul>
+</div>
+</div>
+
+<div id="add_section">
+<!-- ADD a project -->
+<div>
+  <a id="add_project_button" class="btn btn-primary btn-large all_space add_button" href="#">Add a school project</a>
+  <div id="edit_project_section" class="edit_section" style="display: none;">
+    <form class="form-horizontal">
+      <div class="control-group">
+        <label class="control-label" for="edited-inputProject">Project</label>
+        <div class="controls">
+          <input type="text" id="edited-inputProject" placeholder="Enter your project">
+          <span class="with"> with <i id="icon_use_project" class="icon-user"></i></span>
+        </div>
+          <a id="save_project_button" class="btn btn-primary disabled save_button" href="#">Save</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ADD an organization -->
+<div>
+  <a id="add_orga_button" class="btn btn-primary btn-large all_space" href="#">Add a sorority</a>
+  <div id="edit_orga_section" class="edit_section" style="display: none;">
+    <form class="form-horizontal">
+      <div class="control-group">
+        <label class="control-label" for="edited-inputSorority">Sorority</label>
+        <div class="controls">
+          <input type="text" id="edited-inputSorority" placeholder="Enter your Sorority">
+          <a id="save_orga_button" class="btn btn-primary disabled" href="#">Save</a>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<!-- ADD a skill -->
+<div>
+  <a id="add_skill_button" class="btn btn-primary btn-large all_space" href="#">Add a skill</a>
+  <div id="edit_skill_section" class="edit_section" style="display: none;">
+    <form class="form-horizontal">
+      <div class="control-group">
+        <label class="control-label" for="edited-inputSkill">Skill</label>
+        <div class="controls">
+          <input type="text" id="edited-inputSkill" placeholder="Enter your skill">
+          <a id="save_skill_button" class="btn btn-primary disabled" href="#">Save</a>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<!-- ADD an internship -->
+<div>
+  <a id="add_internship_button" class="btn btn-primary btn-large all_space" href="#">Add an internship</a>
+  <div id="edit_internship_section" class="edit_section" style="display: none;">
+    <form class="form-horizontal">
+      <div class="control-group">
+        <label class="control-label" for="edited-inputInternship">Internship</label>
+        <div class="controls">
+          <input type="text" id="edited-inputInternship" placeholder="Enter your internship">
+          <a id="save_internship_button" class="btn btn-primary disabled" href="#">Save</a>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+</div>
 
 {% include 'partials/student/more_info.html' %}
 
