@@ -10,6 +10,15 @@ $(document).ready( function() {
         showSaveButton();
     }
 
+    function newDates() {
+        $clones = $('#internship').children().clone();
+        $clones.find('input').val("");
+        $('#internship').parent().append($clones);
+        $('.datepicker').datepicker();
+        $('.internship_plus').unbind('click');
+        $('.internship_plus').on('click', newDates);
+    }
+
     function init () {
         //main container
         var $container = $('#main_container');
@@ -56,10 +65,7 @@ $(document).ready( function() {
             $(".datepicker").datepicker();
         });
 
-        $('#internship_plus').on('click', function(){
-            $('#internship').parent().append($('#internship').children().clone());
-            $('.datepicker').datepicker();
-        });
+        $('.internship_plus').on('click', newDates);
 
         //Enter your info manually link
         var $enterInfoManually = $('#enter_info_manually');
