@@ -5,15 +5,11 @@ Profile
 {% endblock%}
 
 {% block content %}
-<!-- <form action="/student/{{ student.id }}/save/" method="post">{% csrf_token %} -->
-<!-- {{ form.as_p }} -->
-<!-- <input type="submit" value="Submit" /> -->
-<!-- </form> -->
 
 <div align="center">
   <h3>
     <span style="font-weight: normal;">
-      Welcome {{ student.first_name }}!
+      Welcome <span id="welcome">{{ student.first_name }}</span>!
     </span>
   </h3>
 
@@ -49,13 +45,14 @@ Profile
         <label class="control-label" for="inputSchool">School</label>
         <div class="controls">
           <input type="text" id="inputSchool" placeholder="Enter your school">
+          <input type="hidden" name="school_facebook_id" value="42">
         </div>
       </div>
 
       <div class="control-group">
         <label class="control-label" for="inputMajor">Major</label>
         <div class="controls">
-          <input type="text" id="inputMajor" placeholder="Enter your majors">
+          <input type="text" id="inputMajor" name="majors" placeholder="Enter your majors">
         </div>
       </div>
 
@@ -80,7 +77,7 @@ Profile
     </div>
 
 
-    <div style="float: right">
+    <div style="float: right; display:none">
       <input type="submit" id="save_button" class="btn btn-primary btn-large" value="Save">
     </div>
 

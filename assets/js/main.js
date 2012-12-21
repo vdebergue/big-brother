@@ -2,7 +2,7 @@
 $(document).ready( function() {
 
     function showSaveButton() {
-        $('#save_button').show();
+        $('#save_button').parent().show();
     }
 
     function showMainForm() {
@@ -19,12 +19,34 @@ $(document).ready( function() {
         landing_fb_connect
         var $fbConnect = $('#landing_fb_connect');
         $fbConnect.on('click', function() {
-            $('#inputSchool').val('Telecoms');
-            $('#inputMajor').val('IA, Security, Hacking');
-            $('#inputPeriod').val('10 june to 30 sept');
-            $("#datepicker_from").datepicker("setDate", "05/01/2012");
-            $("#datepicker_to").datepicker("setDate", "09/30/2012");
-            $('#inputKeywords').val('IA, Security, Hacking');
+
+            FB.login(function(response) {
+                if (response.authResponse) {
+                    FB.api('/me', function(response) {
+                        console.log(response);
+                        $('input[name=first_name]').val(response.first_name);
+                        $('#welcome').html(response.first_name);
+                        $('input[name=sur_name]').val(response.last_name);
+                        $('input[name=facebook_id]').val(response.id);
+                        if (response.hasOwnProperty('education')){
+                            var last_education = response.education[response.education.length -1];
+                            var school = response.education[response.education.length -1].school;
+                            $('input[name=school_facebook_id]').val(school.id);
+                            $('#inputSchool').val(school.name);
+
+                            if (last_education.hasOwnProperty('classes')) {
+                                var keywords = [];
+                                $.each(last_education.classes, function(index, cls){
+                                    keywords.push(cls.name);
+                                });
+                                $('input[name=majors]').val(keywords.join(', '));
+                            }
+                        }
+                    });
+                } else {
+                    console.log('User cancelled login or did not fully authorize.');
+                }
+            });
             showMainForm();
         });
 
@@ -36,8 +58,8 @@ $(document).ready( function() {
 
         //date picker
         $(function() {
-            $( "#datepicker_from" ).datepicker();
-            $( "#datepicker_to" ).datepicker();
+            $("#datepicker_from").datepicker();
+            $("#datepicker_to").datepicker();
         });
     }
 
