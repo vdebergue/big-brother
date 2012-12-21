@@ -1,9 +1,16 @@
-h1.main_header {
-    margin: 0;
-    background-color: #006DCC; 
-    color: white; 
-    height: 70px;
-    line-height: 70px;
+.navbar .navbar-inner {
+    background-color:  #006DCC; 
+    background-image:  none;
+    border: 1px solid #006DCC;
+}
+
+.navbar .navbar-inner .brand, .navbar .navbar-inner .nav > li > a {
+    color: #FFFFFF;
+    text-shadow: none;
+}
+
+.navbar .navbar-inner .nav > li.active > a {
+    color: #006DCC;
 }
 
 #spoiler_container {
@@ -12,7 +19,7 @@ h1.main_header {
 }
 
 #main_container {
-    margin-top:10px;
+    margin-top: 40px;
 }
 
 #spoiler_bottom {
