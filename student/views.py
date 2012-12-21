@@ -1,3 +1,5 @@
+import json
+
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import Template, RequestContext
 from django.shortcuts import render
@@ -23,7 +25,6 @@ def student_create(request):
 
 def student_save(request):
     if request.method == 'POST':
-#        import pdb; pdb.set_trace()
         if 'id' in request.POST:
             student = Student.objects.get(pk=request.POST['id'])
             form = StudentForm(request.POST, instance=student)
@@ -36,6 +37,25 @@ def student_save(request):
 
 
         return HttpResponseRedirect('/student/create')
+
+
+def get_student_experiences(request, fb_id):
+    """
+    Ajax call: get the list of experiences
+    """
+    student = get_object_or_404(Student, facebook_id=fb_id)
+    experiences = [exp.name for exp in student.experiences.all()]
+    return HttpResponse(json.dumps(experiences))
+
+
+def get_student_projects(request, fb_id):
+    """
+    Ajax call: get the list of projects
+    """
+    student = get_object_or_404(Student, facebook_id=fb_id)
+    projects = [p.name for exp in student.projects.all()]
+    return HttpResponse(json.dumps(projects))
+
 
 # Create a new company
 #def company_create(request):
