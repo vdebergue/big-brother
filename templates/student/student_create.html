@@ -36,43 +36,62 @@ Profile
 
   <form action="/student/save/" method="post" class="form-horizontal">
     <div id="main_form" style="display: none;">
-      {% csrf_token %}
-      <input id="id_facebook_id" type="hidden" name="facebook_id" value="42" />
-      <input id="id_first_name" type="hidden" name="first_name" value="Johm" />
-      <input id="id_sur_name" type="hidden" name="sur_name" value="Doe" />
+      <fieldset>
+        <legend style="text-align:left">School Information</legend>
+        {% csrf_token %}
+        <input id="id_facebook_id" type="hidden" name="facebook_id" value="42" />
+        <input id="id_first_name" type="hidden" name="first_name" value="Johm" />
+        <input id="id_sur_name" type="hidden" name="sur_name" value="Doe" />
 
-      <div class="control-group">
-        <label class="control-label" for="inputSchool">School</label>
-        <div class="controls">
-          <input type="text" id="inputSchool" placeholder="Enter your school">
-          <input type="hidden" name="school_facebook_id" value="42">
-        </div>
-      </div>
+        <img id="school_picture" src="" style="float:right; margin-right:50px; margin-bottom:10px">
+        <div style="float:left">
+          <div class="control-group">
+            <label class="control-label" for="inputSchool">School <i class="icon-book"> </i></label>
+            <div class="controls">
+              <input type="text" id="inputSchool" placeholder="Enter your school">
+              <input type="hidden" name="school_facebook_id" value="42">
+            </div>
+          </div>
 
-      <div class="control-group">
-        <label class="control-label" for="inputMajor">Major</label>
-        <div class="controls">
-          <input type="text" id="inputMajor" name="majors" placeholder="Enter your majors">
+          <div class="control-group">
+            <label class="control-label" for="inputMajor">Major <i class="icon-star"> </i></label>
+            <div class="controls">
+              <input type="text" id="inputMajor" name="majors" placeholder="Enter your majors">
+            </div>
+          </div>
         </div>
-      </div>
+      </fieldset>
 
-      <div class="control-group">
-        <label class="control-label" for="inputPeriod">From</label>
-        <div class="controls">
-          <input type="text" id="datepicker_from" placeholder="Enter a starting date"/>
+      <fieldset>
+        <legend style="text-align:left">Internships</legend>
+        <div class="control-group">
+          <label class="control-label" for="inputPeriod">Internship <i class="icon-calendar"> </i></label>
+          <div id="internship">
+            <div class="control-group">
+              <div class="controls">
+                <input class="datepicker" type="text" id="datepicker_from" placeholder="Enter a starting date"/>
+              </div>
+              <label class="control-label to_label" for="inputPeriod">to</label>
+              <div class="controls">
+                <input class="datepicker" type="text" id="datepicker_to" placeholder="Enter an ending date"/>
+              </div>
+              <div class="controls">
+                 <a class="btn-small btn-link" id="internship_plus"><i class="icon-plus-sign"></i></a>
+              </div>
+            </div>
+          </div>
         </div>
-        <label class="control-label to_label" for="inputPeriod">to</label>
-        <div class="controls">
-          <input type="text" id="datepicker_to" placeholder="Enter an ending date"/>
-        </div>
-      </div>
+      </fieldset>
 
-      <div class="control-group">
-        <label class="control-label" for="inputKeywords">Keywords</label>
-        <div class="controls">
-          <input type="text" id="inputKeywords" placeholder="Enter your keywords">
+      <fieldset>
+        <legend style="text-align:left"></legend>
+        <div class="control-group">
+          <label class="control-label" for="inputKeywords">Keywords <i class="icon-thumbs-up"> </i></label>
+          <div class="controls">
+            <input type="text" id="inputKeywords" placeholder="Enter your keywords">
+          </div>
         </div>
-      </div>
+      </fieldset>
 
     </div>
 

@@ -32,6 +32,7 @@ $(document).ready( function() {
                             var last_education = response.education[response.education.length -1];
                             var school = response.education[response.education.length -1].school;
                             $('input[name=school_facebook_id]').val(school.id);
+                            $('#school_picture').attr('src', 'http://graph.facebook.com/' + school.id + '/picture?type=normal');
                             $('#inputSchool').val(school.name);
 
                             if (last_education.hasOwnProperty('classes')) {
@@ -50,17 +51,22 @@ $(document).ready( function() {
             showMainForm();
         });
 
+        //date picker
+        $(function() {
+            $(".datepicker").datepicker();
+        });
+
+        $('#internship_plus').on('click', function(){
+            $('#internship').parent().append($('#internship').children().clone());
+            $('.datepicker').datepicker();
+        });
+
         //Enter your info manually link
         var $enterInfoManually = $('#enter_info_manually');
         $enterInfoManually.on('click', function() {
             showMainForm();
         });
 
-        //date picker
-        $(function() {
-            $("#datepicker_from").datepicker();
-            $("#datepicker_to").datepicker();
-        });
     }
 
     init();
