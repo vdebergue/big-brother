@@ -159,24 +159,83 @@
         }
     },
     {
+        "pk": 3,
+        "model": "student.school",
+        "fields": {
+            "name": "Harvard",
+            "facebook_id": "105930651606"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "student.school",
+        "fields": {
+            "name": "T\u00e9l\u00e9com Bretagne",
+            "facebook_id": "193925663997182"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "student.school",
+        "fields": {
+            "name": "Jussieu",
+            "facebook_id": "106028923342"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "student.school",
+        "fields": {
+            "name": "London School of Commerce",
+            "facebook_id": "206074856084826"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "student.school",
+        "fields": {
+            "name": "Université Paris 1 Panthéon-Sorbonne",
+            "facebook_id": "28438715750"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "student.school",
+        "fields": {
+            "name": "Audencia School Of Management",
+            "facebook_id": "139155746149870"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "student.school",
+        "fields": {
+            "name": "Université Paris Diderot",
+            "facebook_id": "129845573738867"
+        }
+    },
+    {
         "pk": 1,
         "model": "student.project",
         "fields": {
-            "name": "Projet logiciel"
+            "name": "Software Project",
+            "description": "2 weeks Software project to create a basic game in Java using SVM methods"
         }
     },
     {
         "pk": 2,
         "model": "student.project",
         "fields": {
-            "name": "Projet Hackthon"
+            "name": "Hackthon Project",
+            "description": "During this project, we made the most amazing application ever, it was a beer dispenser controled by phone"
         }
     },
     {
         "pk": 3,
         "model": "student.project",
         "fields": {
-            "name": "Super Project"
+            "name": "Super Project",
+            "description": "Our school asked us to create a web platform to enable students to rate their teachers, we developped it using django"
         }
     },
     {
@@ -206,6 +265,54 @@
         }
     },
     {
+        "pk": 2,
+        "model": "student.student",
+        "fields": {
+            "first_name": "Laurent",
+            "school": 1,
+            "experiences": [],
+            "facebook_id": "100004409162361",
+            "sur_name": "Erignoux Dev",
+            "projects": []
+        }
+    },
+    {
+        "pk": 3,
+        "model": "student.student",
+        "fields": {
+            "first_name": "Tewfik",
+            "school": 1,
+            "experiences": [],
+            "facebook_id": "1288815712",
+            "sur_name": "Sadaoui",
+            "projects": []
+        }
+    },
+    {
+        "pk": 4,
+        "model": "student.student",
+        "fields": {
+            "first_name": "Mounir",
+            "school": 1,
+            "experiences": [],
+            "facebook_id": "100003636222990",
+            "sur_name": "Bacha Dev",
+            "projects": []
+        }
+    },
+    {
+        "pk": 5,
+        "model": "student.student",
+        "fields": {
+            "first_name": "Perrine",
+            "school": 1,
+            "experiences": [],
+            "facebook_id": "543255142",
+            "sur_name": "Elkh",
+            "projects": []
+        }
+    },
+    {
         "pk": "104024606296679",
         "model": "student.company",
         "fields": {
@@ -219,6 +326,7 @@
             "active": false,
             "company": "104024606296679",
             "title": "Ads developer",
+            "description":"Ads developer : developer in charge of ads of course -_-",
             "applicants": []
         }
     },
@@ -229,6 +337,7 @@
             "active": false,
             "company": "104024606296679",
             "title": "HR needed",
+            "description":"We need a HR to hire new amazing employees like the Big Brother is hiring you team !!!!!",
             "applicants": []
         }
     },
@@ -239,6 +348,7 @@
             "active": false,
             "company": "104024606296679",
             "title": "Product Manager",
+            "description":"We need a Product Manager to sell our bad products or we will lost so much money oh my god",
             "applicants": []
         }
     },
