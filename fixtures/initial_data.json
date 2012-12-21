@@ -281,7 +281,7 @@
         "model": "student.student",
         "fields": {
             "first_name": "Tewfik",
-            "school": 1,
+            "school": 2,
             "experiences": [],
             "facebook_id": "1288815712",
             "sur_name": "Sadaoui",
@@ -293,7 +293,7 @@
         "model": "student.student",
         "fields": {
             "first_name": "Mounir",
-            "school": 1,
+            "school": 9,
             "experiences": [],
             "facebook_id": "100003636222990",
             "sur_name": "Bacha Dev",
@@ -305,7 +305,7 @@
         "model": "student.student",
         "fields": {
             "first_name": "Perrine",
-            "school": 1,
+            "school": 8,
             "experiences": [],
             "facebook_id": "543255142",
             "sur_name": "Elkh",
