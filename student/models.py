@@ -14,6 +14,10 @@ class School(models.Model):
     facebook_id = models.CharField(unique=True, max_length=20)
     name = models.CharField(max_length=200)
 
+    def __unicode__(self):
+        return self.name
+
+
 class Project(models.Model):
     """
     Students' school project.
@@ -21,11 +25,19 @@ class Project(models.Model):
     name = models.CharField(max_length=200)
     description = models.CharField(max_length=2000)
 
+    def __unicode__(self):
+        return self.name
+
+
 class Subject(models.Model):
     """
     """
     name = models.CharField(max_length=200)
     description = models.CharField(max_length=2000)
+
+    def __unicode__(self):
+        return self.name
+
 
 class Experience(models.Model):
     """
@@ -35,6 +47,9 @@ class Experience(models.Model):
     description = models.CharField(max_length=2000)
     date_start = models.DateField()
     date_end = models.DateField()
+
+    def __unicode__(self):
+        return self.name
 
 
 class Student(models.Model):
@@ -47,6 +62,9 @@ class Student(models.Model):
     experiences = models.ManyToManyField('Experience', null=True, blank=True)
     projects = models.ManyToManyField('Project', null=True, blank=True)
 
+    def __unicode__(self):
+        return '%s %s' % (self.first_name, self.sur_name)
+
 
 class Company(models.Model):
     """
@@ -55,6 +73,10 @@ class Company(models.Model):
     facebook_id = models.CharField(primary_key=True, max_length=20)
     name        = models.CharField(max_length=200)
   
+    def __unicode__(self):
+        return self.name
+
+
 class Internship(models.Model):
     """
     Internship posted by companies.
@@ -65,3 +87,6 @@ class Internship(models.Model):
     tags        = models.CharField(max_length=200)
     applicants  = models.ManyToManyField('Student')
     active      = models.BooleanField(True)
+
+    def __unicode__(self):
+        return self.title
