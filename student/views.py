@@ -46,7 +46,7 @@ def get_student_experiences(request, fb_id):
     """
     student = get_object_or_404(Student, facebook_id=fb_id)
     experiences = [exp.name for exp in student.experiences.all()]
-    return HttpResponse(json.dumps(experiences))
+    return HttpResponse(json.dumps(experiences), mimetype='application/json')
 
 
 def get_student_projects(request, fb_id):
@@ -55,7 +55,7 @@ def get_student_projects(request, fb_id):
     """
     student = get_object_or_404(Student, facebook_id=fb_id)
     projects = [p.name for exp in student.projects.all()]
-    return HttpResponse(json.dumps(projects))
+    return HttpResponse(json.dumps(projects), mimetype='application/json')
 
 
 # Create a new company
