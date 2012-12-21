@@ -140,6 +140,40 @@ $(document).ready( function() {
         $("#truand").on("click", function(){
           $("#truand2").show();
         });
+
+        $('#friend_list').on('click',friendsAutocomplete);
+    }
+
+    function friendsAutocomplete(){
+        var makeItems = function(fbresponse) {
+          return $.map(fbresponse, function(item) {
+            return {
+              label: item.name,
+              value: item.id,
+            }
+          });
+        };
+
+        var setAutoComplete = function(parsed_items) {
+         console.log(parsed_items);
+          $("#input_13").autocomplete({
+            source : parsed_items,
+            select : function(event, ui){
+              $("#input_13").val(ui.item.label);
+              return false;
+            }
+          }).data( "autocomplete" )._renderItem = function( ul, item ) {
+            return $( "<li>" )
+                .data( "item.autocomplete", item )
+                .append( "<div><img src='http://graph.facebook.com/"+ item.value +"/picture?type=square' ><a style='float:right'>" + item.label + "</a></div>" )
+                .appendTo( ul );
+            };
+        };
+
+        FB.api('/me/friends', function(fbresponse) {
+          setAutoComplete(makeItems(fbresponse.data));
+        });
+        $('#input_13').show();
     }
 
     init2();
