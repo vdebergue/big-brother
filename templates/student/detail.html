@@ -12,7 +12,8 @@
 <div id="student_infos">
 <!-- Student name -->
 <div>
-  <h2 id="second_page_student_name">{{student.first_name}} {{student.sur_name}}</h2>
+  <h2 id="second_page_student_name" style="float:right">{{student.first_name}} {{student.sur_name}}</h2>
+  <img src="http://graph.facebook.com/{{student.facebook_id}}/picture?type=normal">
 </div>
 <!-- School name  -->
  <div>
@@ -35,13 +36,13 @@
   <h4>News Feed</h4>
   <ul class="bluesquare">
     <li>
-      <span><a href="#">Ronald</a> added you to the project <a href="#">Bario Mros</a></span>
+      <span><a>Ronald</a> added you to the project <a >Bario Mros</a></span>
     </li>
     <li>
-      <span><a href="#">Ronald</a> added you to the school <a href="#">Telecoms</a></span>
+      <span><a >Ronald</a> added you to the school <a >Telecoms</a></span>
     </li>
     <li>
-      <span>You are now  associated you to the school <a href="#">Telecoms</a></span>
+      <span>You are now  associated you to the school <a >Telecoms</a></span>
     </li>
   </ul>
 </div>
@@ -50,7 +51,7 @@
 <div id="add_section">
 <!-- ADD a project -->
 <div>
-  <a id="add_project_button" class="btn btn-primary btn-large all_space add_button" href="#">Add a school project</a>
+  <a id="add_project_button" class="btn btn-primary btn-large all_space add_button" >Add a school project</a>
   <div id="edit_project_section" class="edit_section" style="display: none;">
     <form class="form-horizontal">
       <div class="control-group">
@@ -59,7 +60,7 @@
           <input type="text" id="edited-inputProject" placeholder="Enter your project">
           <span class="with"> with <i id="icon_use_project" class="icon-user"></i></span>
         </div>
-          <a id="save_project_button" class="btn btn-primary disabled save_button" href="#">Save</a>
+          <a id="save_project_button" class="btn btn-primary disabled save_button" >Save</a>
       </div>
     </form>
   </div>
@@ -67,14 +68,14 @@
 
 <!-- ADD an organization -->
 <div>
-  <a id="add_orga_button" class="btn btn-primary btn-large all_space" href="#">Add a sorority</a>
+  <a id="add_orga_button" class="btn btn-primary btn-large all_space" >Add a sorority</a>
   <div id="edit_orga_section" class="edit_section" style="display: none;">
     <form class="form-horizontal">
       <div class="control-group">
         <label class="control-label" for="edited-inputSorority">Sorority</label>
         <div class="controls">
           <input type="text" id="edited-inputSorority" placeholder="Enter your Sorority">
-          <a id="save_orga_button" class="btn btn-primary disabled" href="#">Save</a>
+          <a id="save_orga_button" class="btn btn-primary disabled" >Save</a>
         </div>
       </div>
 
@@ -84,14 +85,14 @@
 
 <!-- ADD a skill -->
 <div>
-  <a id="add_skill_button" class="btn btn-primary btn-large all_space" href="#">Add a skill</a>
+  <a id="add_skill_button" class="btn btn-primary btn-large all_space" >Add a skill</a>
   <div id="edit_skill_section" class="edit_section" style="display: none;">
     <form class="form-horizontal">
       <div class="control-group">
         <label class="control-label" for="edited-inputSkill">Skill</label>
         <div class="controls">
           <input type="text" id="edited-inputSkill" placeholder="Enter your skill">
-          <a id="save_skill_button" class="btn btn-primary disabled" href="#">Save</a>
+          <a id="save_skill_button" class="btn btn-primary disabled" >Save</a>
         </div>
       </div>
 
@@ -101,14 +102,14 @@
 
 <!-- ADD an internship -->
 <div>
-  <a id="add_internship_button" class="btn btn-primary btn-large all_space" href="#">Add an internship</a>
+  <a id="add_internship_button" class="btn btn-primary btn-large all_space" >Add an internship</a>
   <div id="edit_internship_section" class="edit_section" style="display: none;">
     <form class="form-horizontal">
       <div class="control-group">
         <label class="control-label" for="edited-inputInternship">Internship</label>
         <div class="controls">
           <input type="text" id="edited-inputInternship" placeholder="Enter your internship">
-          <a id="save_internship_button" class="btn btn-primary disabled" href="#">Save</a>
+          <a id="save_internship_button" class="btn btn-primary disabled" >Save</a>
         </div>
       </div>
 

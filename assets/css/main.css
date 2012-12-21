@@ -11,6 +11,10 @@ h1.main_header {
     text-align: center;
 }
 
+#main_container {
+    margin-top:10px;
+}
+
 #spoiler_bottom {
     margin-top: 10px;
     width:241px;
