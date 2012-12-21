@@ -19,19 +19,28 @@ class Project(models.Model):
     Students' school project.
     """
     name = models.CharField(max_length=200)
+    description = models.CharField(max_length=2000)
 
 class Subject(models.Model):
     """
     """
     name = models.CharField(max_length=200)
+    description = models.CharField(max_length=2000)
 
 class Experience(models.Model):
     """
     Student's previous experiences (internship, summer jobs ...)
     """
     name = models.CharField(max_length=200)
+    description = models.CharField(max_length=2000)
     date_start = models.DateField()
     date_end = models.DateField()
+
+class StudentInternship(models.Model):
+    """
+    """
+    name = models.CharField(max_length=200)
+    description = models.CharField(max_length=2000)
 
 class Student(models.Model):
     """
@@ -55,7 +64,9 @@ class Internship(models.Model):
     """
     Internship posted by companies.
     """
-    title = models.CharField(max_length=200)
-    company = models.ForeignKey('Company')
-    applicants = models.ManyToManyField('Student')
-    active     = models.BooleanField(True)
+    company     = models.ForeignKey('Company')
+    title       = models.CharField(max_length=200)
+    description = models.CharField(max_length=10000)
+    tags        = models.CharField(max_length=200)
+    applicants  = models.ManyToManyField('Student')
+    active      = models.BooleanField(True)
