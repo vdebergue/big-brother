@@ -16,6 +16,7 @@ urlpatterns = patterns('',
         DetailView.as_view(
             model=Student,
             template_name='student/detail.html')),
+    url(r'^json/$', 'student.views.get_students'),
     url(r'^(?P<fb_id>\d+)/experiences/$', 'student.views.get_student_experiences'),
     url(r'^(?P<fb_id>\d+)/projects/$', 'student.views.get_student_projects'),
     url(r'^create/$', 'student.views.student_create'),
