@@ -46,6 +46,15 @@ def student_save(request):
             context_instance=RequestContext(request))
 
 
+def get_students(request):
+    """
+    Ajax call: get the list of students
+    """
+    names = ['%s %s' % (student.first_name, student.sur_name)
+             for student in Student.objects.all()]
+    return HttpResponse(json.dumps(names), mimetype='application/json')
+
+
 def get_student_experiences(request, fb_id):
     """
     Ajax call: get the list of experiences
@@ -128,10 +137,6 @@ def internship_save(request, internship_id):
         form = CompanyForm()
 
     return HttpResponseRedirect('/company/' + internship.company.facebook_id + '/internship/' + internship_id + '/edit')
-
-# Get students according to search preferences
-def get_students(request):
-  pass
 
 # view a student profile
 def view_student(request):
