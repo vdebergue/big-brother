@@ -21,7 +21,8 @@ urlpatterns = patterns('',
     url(r'^(?P<pk>\d+)/edit/$', 'company.views.company_edit'),
     url(r'^(?P<pk>\d+)/save/$', 'company.views.company_save'),
 
-            
+    url(r'^notified/$','student.views.notified'),
+    
     #internships urls
     url(r'^internship/(?P<pk>\d+)/$',
         DetailView.as_view(

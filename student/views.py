@@ -135,4 +135,6 @@ def view_student(request):
 def ping_students(request):
   pass
 
+def notified(request):
+  return HttpResponseRedirect('/company/104024606296679/')
 
