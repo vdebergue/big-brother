@@ -33,10 +33,12 @@ $(document).ready( function() {
         $editOrga = $('#edit_orga_section');
         $editSkill = $('#edit_skill_section');
         $editInternship = $('#edit_internship_section');
+        $editReferences = $('#edit_references_section');
 
         $('#add_project_button').on('click', function() {
             $editProject.slideDown('fast');
 
+            $editReferences.slideUp('fast');
             $editOrga.slideUp('fast');
             $editSkill.slideUp('fast');
             $editInternship.slideUp('fast');
@@ -45,6 +47,7 @@ $(document).ready( function() {
         $('#add_orga_button').on('click', function() {
             $editOrga.slideDown('fast');
 
+            $editReferences.slideUp('fast');
             $editProject.slideUp('fast');
             $editInternship.slideUp('fast');
             $editSkill.slideUp('fast');
@@ -53,6 +56,7 @@ $(document).ready( function() {
         $('#add_skill_button').on('click', function() {
             $editSkill.slideDown('fast');
 
+            $editReferences.slideUp('fast');
             $editProject.slideUp('fast');
             $editInternship.slideUp('fast');
             $editOrga.slideUp('fast');
@@ -61,6 +65,16 @@ $(document).ready( function() {
         $('#add_internship_button').on('click', function() {
             $editInternship.slideDown('fast');
 
+            $editReferences.slideUp('fast');
+            $editProject.slideUp('fast');
+            $editOrga.slideUp('fast');
+            $editSkill.slideUp('fast');
+        });
+        
+        $('#add_references_button').on('click', function() {
+            $editReferences.slideDown('fast');
+
+            $editInternship.slideUp('fast');
             $editProject.slideUp('fast');
             $editOrga.slideUp('fast');
             $editSkill.slideUp('fast');
@@ -101,6 +115,13 @@ $(document).ready( function() {
                 $('#save_internship_button').addClass('disabled');            
             } else {
                 $('#save_internship_button').removeClass('disabled'); 
+            }
+        });
+        $inputInternship.on('keyup keydown keypress change paste', function() {
+            if($(this).val() == '') {
+                $('#save_references_button').addClass('disabled');            
+            } else {
+                $('#save_references_button').removeClass('disabled'); 
             }
         });
     }
