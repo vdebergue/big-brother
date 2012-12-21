@@ -9,7 +9,7 @@ urlpatterns = patterns('',
     # student urls
     url(r'^$',
         ListView.as_view(
-            queryset=Student.objects.order_by('-pub_date')[:5],
+            queryset=Student.objects.order_by('sur_name')[:5],
             context_object_name='student_list',
             template_name='student/index.html')),
     url(r'^(?P<pk>\d+)/$',
