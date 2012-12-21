@@ -115,6 +115,10 @@ $(document).ready( function() {
 
         bindAddButtons();
         bindSaveButtons();
+
+        $("#truand").on("click", function(){
+          $("#truand2").show();
+        });
     }
 
     init2();

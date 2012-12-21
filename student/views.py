@@ -29,7 +29,13 @@ def student_save(request):
             student = Student.objects.get(pk=request.POST['id'])
             form = StudentForm(request.POST, instance=student)
         else:
-            form = StudentForm(request.POST)
+            try:
+                student = Student.objects.get(facebook_id=request.POST['facebook_id'])
+            except Student.DoesNotExist:
+                form = StudentForm(request.POST)
+            else:
+                form = StudentForm(request.POST, instance=student)
+
         if form.is_valid():
             student = form.save()  # vuln here, auth + check needed
             return HttpResponseRedirect('/student/' + str(student.id))
@@ -135,4 +141,6 @@ def view_student(request):
 def ping_students(request):
   pass
 
+def notified(request):
+  return HttpResponseRedirect('/company/104024606296679/')
 
