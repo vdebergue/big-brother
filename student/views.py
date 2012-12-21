@@ -30,13 +30,14 @@ def student_save(request):
             form = StudentForm(request.POST, instance=student)
         else:
             form = StudentForm(request.POST)
-
         if form.is_valid():
             student = form.save()  # vuln here, auth + check needed
             return HttpResponseRedirect('/student/' + str(student.id))
 
-
-        return HttpResponseRedirect('/student/create')
+        return render_to_response(
+            'student/student_create.html',
+            {'errors': reduce(list.__add__, form.errors.values()),},
+            context_instance=RequestContext(request))
 
 
 def get_student_experiences(request, fb_id):
